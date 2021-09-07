@@ -23,7 +23,7 @@ export class EventService{
           imageUrl: '/assets/images/angularconnect-shield.png',
           location: {
             address: '1057 DT',
-            city: 'London',
+            city: 'Londons',
             country: 'England'
           },
           sessions: [
