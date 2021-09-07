@@ -6,7 +6,7 @@ import { Component,Input } from "@angular/core";
     <div>
     <!-- <h1>Upcoming Angular Events</h1>
     <hr/> -->
-    <div class ="well hoverwell thumbnail">
+    <div [routerLink] = "['/events',event.id]" class ="well hoverwell thumbnail">
     <h2>{{event?.name}}</h2>
     <div>Date  :  {{event?.date}} </div>
     <div>price :  ₹  {{event?.price}}</div>
