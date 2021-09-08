@@ -4,7 +4,7 @@ import { Router } from '@angular/router'
 import { AuthService } from './auth.service'
 
 @Component({
-  templateUrl: `./profile.component.html`,
+  templateUrl: './profile.component.html',
   styles : [`
   em {float : right; colour: #E3C3C5; padding-left : 10px;}
   .error input { background-color : #E3C3C5;}
@@ -22,7 +22,7 @@ export class ProfileComponent implements OnInit {
 
   }
   ngOnInit(){
-    this.firstName = new FormControl(this.authService.currentUser.firstName, Validators.required)
+    this.firstName = new FormControl(this.authService.currentUser.firstName, [Validators.required, Validators.pattern('{a-zA-Z].*')])
     this.lastName = new FormControl(this.authService.currentUser.lastName, Validators.required)
     this.profileForm = new FormGroup({
       

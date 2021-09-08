@@ -29,6 +29,12 @@ export class EventService{
       //console.log(eventsd)
       return event;
     }
+    
+    saveEvent(event: IEvent){
+      event.id = 999
+      event.sessions = []
+      EVENTS.push(event)
+    }
 
 
 }
