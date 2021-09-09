@@ -1,14 +1,88 @@
-<div style="color: royalblue;">
-  
-    <div class="col align-self-center dums">
+<div>
+  <div class="col align-self-center dums">
       <h1><i><span>C</span>yber <span>I</span>nsurance</i></h1>
   </div>
 </div>
 <div class="row w-100">
-<div class="col-7 h-100" style="border: 1px solid;">
-  <div class="container mx-auto" style="text-align: center; margin-top: 10%;">
-    <img src="../assets/logo.png" alt="">
+<div class="col-7 h-100">
+  <div class="container mx-auto" style="text-align: center; margin-top: 5%;">
+    <div class="container">
+    <div>
+    <img src="../assets/logo.png" alt="" style="width: 15%;">
+    </div>
+    <h2 class="head-body my-3">Let's Get Started</h2>
+    <hr>
+    <form action="" class="quote-form">
+      
+      <div class="form-group row">
+        <div class="col"></div>
+         <label for="zipcode" class=" col col-form-label">Zip Code</label>
+         <div class="col-5 inp">
+            <input type="text" class="form-control" id="emails" [(ngModel)]="zipcode" name="zipcode" id="" placeholder="Enter Zip Code">
+         </div>
+         <div class="col-1"></div>
+      </div>
+      
+      <div class="form-group row">
+        <div class="col"></div>
+         <label for="firstname" class=" col col-form-label">First Name</label>
+         <div class="col-5 inp">
+            <input type="text" class="form-control" id="firstname" [(ngModel)]="firstName" name="firstname" id="" placeholder="Enter First Name">
+         </div>
+         <div class="col-1"></div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col"></div>
+         <label for="lastname" class=" col col-form-label">Last Name</label>
+         <div class="col-5 inp">
+            <input type="text" class="form-control" id="lastname" [(ngModel)]="lastName" name="lastname" id="" placeholder="Enter Last Name">
+         </div>
+         <div class="col-1"></div>
+      </div>
+
+
+      <div class="form-group row">
+        <div class="col"></div>
+        <button type="submit" class=" col align-self-center btn btn-primary my-3" style="background-color: #3b64ad;border-radius: 50px;font-size: 34px;height: 66px;line-height: 1.2rem;font-style: italic;">Get A Quote</button>
+        <div class="col"></div>
+      </div>
+
+    </form>
+    <form style="width: 50%; margin: 0 auto;">
+      <div *ngIf="viewRetereivedDetails">
+        <div class="col-auto">
+          
+          <div class="input-group mb-2 view-quote-input">
+            <div class="input-group-prepend">
+              <div class="input-group-text" style="height: 100%;">@</div>
+            </div>
+            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Please Enter Your Quote Reference ID">
+          </div>
+        </div>
+        <div class="col-auto">
+          
+          <div class="input-group mb-2 view-quote-input">
+            <div class="input-group-prepend">
+              <div class="input-group-text" style="height: 100%;">@</div>
+            </div>
+            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Please Enter Your Registered Mobile Number">
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <button type="submit" (click) = "reteriveQuote()" class=" col align-self-center btn my-2" style="background-color: #ffffff;border-radius: 50px;font-size: 34px;height: 66px;line-height: 1.2rem;font-style: italic;"><b>Retreive Quote</b></button>
+      </div>
+      <button type="submit" class=" col align-self-center btn btn-primary my-3" style="background-color: #3b64ad;font-size: 34px;height: 66px;line-height: 1.2rem;font-style: italic;">submit</button>
+    </form>
+    <hr>
+    <div class="row">
+      <div class="col align-self-center">
+        <img style="width: 100px;" src="../assets/comp_logo.png">
+      </div>
+    </div>
   </div>
+</div>
 </div>
 <div class="col-5 h-100 d-none d-lg-block">
   <div class="mt-50 pic-div">
@@ -16,27 +90,7 @@
   </div>
 </div>
 </div>
-<!-- <div class="container">
-<div class="row">
-  <div class="col align-self-start">
-    One of three columns
-  </div>
-  <div class="col align-self-center">
-    One of three columns
-  </div>
-  <div class="col align-self-end">
-    One of three columns
-  </div>
-</div>
-</div> -->
-      <!-- <div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
-      <div class="col-6 col-sm-3">
-        <div class="w-100 h-50"></div>
-        
-      </div> -->
-    
-      <!-- Force next columns to break to new line -->
-      
+
     
      
       
