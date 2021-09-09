@@ -346,5 +346,7 @@ export class EventService{
               voters: ['bradgreen', 'igorminar', 'johnpapa']
             }
           ]
-        }
+        },
+        
+        
       ]

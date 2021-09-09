@@ -6,7 +6,7 @@ import { ISession } from "..";
     templateUrl : './create-session.component.html',
     styles : [`
     em {float : right; colour: #E3C3C5; padding-left : 10px;}
-    .error input,error.select, error.textarea { background-color : #E3C3C5;}
+    .error input, .error select, .error textarea { background-color : #E3C3C5;}
     .error ::-webkit-input-placeholder {color:#999; }
     .error :: -moz-placeholder { color: #999;}
     .errror :: -moz-placeholder { color : #999;}
@@ -15,6 +15,8 @@ import { ISession } from "..";
 })
 
 export class CreateSessionComponent implements OnInit {
+    ghg !: null 
+
     newSessionForm !: FormGroup
     name !: FormControl
     presenter !: FormControl
@@ -39,7 +41,16 @@ export class CreateSessionComponent implements OnInit {
             }
         )
     }
-
+    // private restrictedWords(words : any) {
+    //     return (control : FormControl):{[key : string] : any} =>{
+            
+    //         if(!words) {
+    //             return null
+    //         }
+    //         var invalidwords = words.map((w: any) => control.value.includes(w) ? w:null).filter((w: null) => w != null)
+    //     }
+    // }
+    
     saveSession(formValues : any){
         
         let session : ISession = {
