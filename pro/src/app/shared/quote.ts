@@ -4,6 +4,7 @@ export class Quote{
     policy_start_date!:Date;
     policy_end_date!:Date
     person!:Person;
+    total_premium!:number
 
 }
 
