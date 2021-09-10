@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+
+hr{
+    height: 2px;
+}
+.filling-input-group{
+    font-size: 24px;
+}
+.filling-input-group label {
+    font-weight: bold;
+}
+.filling-input-group input{
+    border: none;
+}
+.filling-input-group input:focus{
+    outline: none;
+    font-style: italic;
+    
+}
+.filling-input-group input:not(:focus){
+    
+    font-style: italic;
+    
+}

@@ -4,10 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PersonalDetailsComponent } from './details/personal-details/personal-details.component';
+import { QuoteFillingProgressComponent } from './details/quote-filling-progress/quote-filling-progress.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PersonalDetailsComponent,
+    QuoteFillingProgressComponent
   ],
   imports: [
     BrowserModule,
@@ -15,6 +19,6 @@ import { AppComponent } from './app.component';
     FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [QuoteFillingProgressComponent]
 })
 export class AppModule { }
