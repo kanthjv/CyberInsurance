@@ -1,5 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+body{
+    font-style: italic;
+    font-size: 24px;;
+}
+
 hr{
     height: 2px;
 }
@@ -21,4 +28,31 @@ hr{
     
     font-style: italic;
     
+}
+.borders{
+    border: 1px solid black;
+}
+
+.form-action-btn{
+    width: 75%;line-height: 2em; font-size: 28px; border-radius: 50px;
+    display: inline-block;
+    font-weight: 400;
+    
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    text-decoration-line: none;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: 40px;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }

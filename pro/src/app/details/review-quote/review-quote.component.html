@@ -1,0 +1,57 @@
+<div class="col-6">
+    <div class="row" style="background-color: #f2f2f2; font-size: 50px; color: #005482;">
+        <div class="col-sm-9" >
+            <b><p>Cover Details</p></b>
+        </div>
+        <div class="col-sm-3 my-2">
+            <button class="mt-2 coverage-details-edit"><i class="bi bi-pencil-square"> Edit</i></button>
+        </div>
+    </div>
+    <hr style="background-color: yellowgreen;height: 3px;">
+    <div class="my-3">
+        <table class="table table-borderless" style="font-size: 28px;">
+            <thead>
+              <tr>
+                <th >Coverage</th>
+                <th>Sum Assured</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Digital Security</th>
+                <td><b>{{15000 | currency:'USD':'symbol'}}</b></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <h2 style="font-size: 28px; color: #005482;"><b>Premium Details</b></h2>
+    <div class="my-3">
+        <table class="table table-borderless" style="font-size: 28px;">
+            
+            <tbody>
+              <tr>
+                <th scope="row">Digital Security</th>
+                <td><b>{{550 | currency:'USD':'symbol'}}</b></td>
+              </tr>
+              <tr>
+                <th scope="row">Tax</th>
+                <td><b>{{15 | currency:'USD':'symbol'}}</b></td>
+              </tr>
+              <tr style="border-bottom: 1px solid black;">
+                <th scope="row"></th>
+                <td><b></b></td>
+              </tr>
+              <!-- <hr style="width: 100%;"> -->
+              <tr>
+                <th scope="row" style="color: #005482;"><b>Total Premium</b></th>
+                <td><b>{{565 | currency:'USD':'symbol'}}</b></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="row my-5">
+        <div class="col text-end">
+             <button class="btn btn-lg" style="width:25%;background-color: rgb(112,173,16);color: white;">Buy Now</button>   
+        </div>
+    </div>
+</div>

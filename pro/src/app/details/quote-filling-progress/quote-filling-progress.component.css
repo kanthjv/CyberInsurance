@@ -30,7 +30,7 @@ body{
 #progressbar li {
     list-style-type: none;
     font-size: 15px;
-    width: 20%;
+    width: 25%;
     float: left;
     position: relative;
     font-weight: 400;
@@ -44,10 +44,10 @@ body{
     left:-50%;
 }
 
-#progressbar #account:before {
+#progressbar #plan:before {
     font-family: FontAwesome;
     content: "";
-    background-color:#dece00;
+    background-color:#FFC000;
 }
 
 #progressbar #personal:before {
@@ -59,13 +59,13 @@ body{
 #progressbar #payment:before {
     
     content: "";
-    background-color: #c11a62;
+    background-color: #92D050;
 }
 
 #progressbar #confirm:before {
     
     content: "";
-    background-color: #898989;
+    background-color: #BFBFBF;
     
 }
 

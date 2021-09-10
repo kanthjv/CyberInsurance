@@ -1,3 +1,58 @@
 .borders{
     border: 1px solid black;
 }
+
+.details button{
+    width: 100%;
+    line-height: 4rem;
+    font-size: 35px;
+    margin: 5px 0;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+.form-details input{
+    font-size: 28px;
+    border:none;
+    border-bottom: 2px solid black;
+}
+
+.form-details input:focus{
+    font-style: italic;
+    font-size: 28px;
+    box-shadow: none;
+}
+
+.form-details input:not(:focus){
+    font-style: italic;
+    font-size: 28px;
+    font-weight: 300;
+}
+.form-details label{
+    font-size: 28px;
+    color: #e3e3e3;
+    font-style: italic;
+}
+
+
+.quote-radio label{
+    margin-left: 10px;
+}
+
+input[type=radio]{
+    transform:scale(1.5);
+  }
+
+/* input[type=date] {
+    text-align: right;
+  }
+  
+  input[type="date"]:before {
+    color: lightgrey;
+    content: attr(placeholder);
+    margin-right: 0.2em;
+  }
+
+  input[type="date"]:focus:before {
+    content: '' !important;
+  } */
