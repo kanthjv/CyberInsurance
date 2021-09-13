@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuoteFillingProgressComponent implements OnInit {
 
+  showModule:string = "personal_details"
+
   constructor() { }
 
   ngOnInit(): void {

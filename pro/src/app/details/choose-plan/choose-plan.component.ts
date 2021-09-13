@@ -1,4 +1,4 @@
-import { Component, OnInit,HostListener,ElementRef } from '@angular/core';
+import { Component, OnInit,HostListener,ElementRef, Input } from '@angular/core';
 
 @Component({
   selector: 'app-choose-plan',
@@ -16,5 +16,7 @@ export class ChoosePlanComponent implements OnInit {
     
     console.log("Clicked")
   }
+
+  
 
 }

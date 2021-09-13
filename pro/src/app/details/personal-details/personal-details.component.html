@@ -1,66 +1,85 @@
-
-
-<script>
-    $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
-</script>
     <div class="col-6 details">
-        <button *ngIf="showPersonalDetailsBtn" (click)="expandPersonalDetails()" class="btn btn-primary"><i>Personal Details</i></button>
+        <button *ngIf="showPersonalDetailsBtn"  (click)="expandPersonalDetails()" class="btn btn-primary"><i>Personal Details</i></button>
         <button *ngIf="showAdditionalDetailsBtn" (click)="expandAdditionalDetails()" class="btn btn-primary"><i>Additional Details</i></button>
         <button *ngIf="showIncidentsHistoryBtn" (click)="expandIncidentHistory()" class="btn btn-primary"><i>Security Incidents & Loss History</i></button>
     </div>
+        <!-- <div *ngIf="false" style="font-size: 28px;"> -->
         <div *ngIf="showPersonalDetails" style="font-size: 28px;">
-            <form>
-            <div class="row my-5">
-                <div class="col-sm-3 form-details">
-                    <input type="text" class="form-control" placeholder="Salutation">
+
+            <form action="" class="personal-form" autocomplete="off"  [formGroup] = "personalForm">
+            <div class="container  row my-5">
+                <div class="col-sm-4 form-details">
+                    <div class="form-check form-check-inline" style="font-size: 20px;color: black;">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                        <label class="form-check-label" for="inlineRadio1">Mr.</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                        <label class="form-check-label" for="inlineRadio2">Ms.</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                        <label class="form-check-label" for="inlineRadio3">Mrs.</label>
+                      </div>
                 </div>
                 <div class="col-sm-4 form-details">
-                    <input type="text" class="form-control" placeholder="FirstName      LastName">
+                    <input type="text"  [ngClass]="{'show-error':(name.invalid && (name.dirty || name.touched))}" class="form-control show-border" formControlName ="name" placeholder="FirstName      LastName">
+                    <span [ngClass]="{'errs':(name.invalid && (name.dirty || name.touched))}">*Required</span>
                 </div>
                 <div class="col-sm-4 form-details">
                     <!-- <input placeholder="Date" class="form-control" type="text" onfocus="(this.type='date')" onblur="(this.value == '' ? this.type='text' : this.type='date')" id="date"> -->
 
-                    <input type="date" class="form-control" data-toggle="tooltip" data-placement="top" placeholder="DOB">
+                    <input type="date" [ngClass]="{'show-error':(dob.invalid && (dob.dirty || dob.touched))}" formControlName ="dob" class="form-control show-border" placeholder="DOB">
+                    <span [ngClass]="{'errs':(dob.invalid && (dob.dirty || dob.touched))}">*Required</span>
+                    
                 </div>
             </div>
-            <div class="row my-5">
+            <div class="row my-5" >
                 <div class="col-sm-5 form-details">
-                    <input type="text" class="form-control" placeholder="Email">
+                    <input type="email" [ngClass]="{'show-error':(emails.invalid && (emails.dirty || emails.touched))}" class="form-control show-border" formControlName ="emails" placeholder="Email">
+                    <span *ngIf="emails.errors?.required" [ngClass]="{'errs':(emails.errors?.required && (emails.dirty || emails.touched))}">*Required</span>
+                    <span *ngIf="emails.errors?.email" [ngClass]="{'errs':(emails.errors?.email)}">abc@de.gfg</span>
+                    <span [ngClass]="{'formatError':(emails.errors?.email)}"><i class="bi bi-x-circle-fill"></i></span>
                 </div>
                 <div class="offset-sm-1 col-sm-5 form-details">
-                    <input type="text" class="form-control" placeholder="Send Me Quote At">
+                    <input type="text" [ngClass]="{'show-error':(phonenumber.invalid && (phonenumber.dirty || phonenumber.touched))}" class="form-control show-border" formControlName ="phonenumber" placeholder="Send Me Quote At">
+                    <span [ngClass]="{'errs':(phonenumber.errors?.required && (phonenumber.dirty || phonenumber.touched))}">*Required</span>
+                    <span [ngClass]="{'formatError':(phonenumber.errors?.pattern)}"><i class="bi bi-x-circle-fill"></i></span>
+                    <span *ngIf="phonenumber.errors?.pattern" [ngClass]="{'errs':(phonenumber.errors?.pattern)}" >Eg: +91 01234567890</span>
                 </div>
                 
             </div>
             <div class="row my-5">
                 <div class="col-sm-5 form-details">
-                    <input type="text" class="form-control" placeholder="SSN Number">
+                    <input type="text" [ngClass]="{'show-error':(ssn_number.invalid && (ssn_number.dirty || ssn_number.touched))}"  class="form-control show-border"   formControlName ="ssn_number" placeholder="SSN Number">
+                    <span [ngClass]="{'errs':(ssn_number.invalid && (ssn_number.dirty || ssn_number.touched))}">*Required</span>
                 </div>
                 <div class="offset-sm-1 col-sm-5 form-details">
-                    <input type="text" class="form-control" placeholder="Source of Income">
+                    <input type="text" [ngClass]="{'show-error':(income_source.invalid && (income_source.dirty ||income_source.touched))}" class="form-control show-border"  formControlName ="income_source" placeholder="Source of Income">
+                    <span [ngClass]="{'errs':(income_source.invalid && (income_source.dirty || income_source.touched))}">*Required</span>
                 </div>
                 
             </div>
             <div class="row my-5 d-flex align-items-end flex-column">
                 <div class="col-4">
-                    <button style="font-size: 28px;" class="btn-primary form-action-btn" (click)="expandAdditionalDetails()">Done</button>
+                    <button style="font-size: 28px;"  [disabled] = "!personalForm.valid" class="btn-primary form-action-btn" (click)="expandAdditionalDetails();p(personalForm)">Done</button>
                 </div>
                 
             </div>
         </form>
         </div>
         <div *ngIf="showAdditionalDetails">
-            <form>
-                <div class="row my-5">
+            <form >
+                <div class="row my-5" [formGroup] = "additionalForm">
                   <div class="form-group col-md-5 form-details">
                     <label for="inputEmail4">Polcy Start Date</label>
-                    <input type="date" class="form-control">
+                    <input type="date" required name="start_date" [ngClass]="{'show-error':(policy_start_date.invalid && (policy_start_date.dirty || policy_start_date.touched))}" class="form-control show-border"  formControlName ="policy_start_date">
+                    <span [ngClass]="{'errs':(policy_start_date.invalid && (policy_start_date.dirty || policy_start_date.touched))}">*Required</span>
                   </div>
                   <div class="form-group col-md-5 form-details">
                     <label for="inputPassword4">Policy End Date</label>
-                    <input type="date" class="form-control">
+                    <input type="date" required name="end_date" [ngClass]="{'show-error':(policy_end_date.invalid && (policy_end_date.dirty || policy_end_date.touched))}"  class="form-control show-border"  formControlName ="policy_end_date" >
+                    <span [ngClass]="{'errs':(policy_end_date.invalid && (policy_end_date.dirty || policy_end_date.touched))}">*Required</span>
                   </div>
                 </div>
                 <div class="col-md-10">
@@ -72,12 +91,11 @@
             <button class="btn btn-danger btn-sm mx-2">No</button>
             <div class="row my-5 d-flex align-items-end flex-column">
                 <div class="col-4">
-                    <button style="font-size: 28px;" class="btn-primary form-action-btn" (click)="expandIncidentHistory()">Done</button>
+                    <button style="font-size: 28px;" [disabled] = additionalForm.invalid class="btn-primary form-action-btn" (click)="expandIncidentHistory()">Done</button>
                 </div>
                 
             </div>
             </form>
-
         </div>
         <div *ngIf="showIncidentsHistory">
             <div class="my-4" style="font-size:28px">
@@ -116,5 +134,4 @@
             <div class="col-4">
                 <button style="font-size: 28px;" class="btn-primary form-action-btn">Proceed</button>
             </div>
-        </div>
-
+        </div>    
