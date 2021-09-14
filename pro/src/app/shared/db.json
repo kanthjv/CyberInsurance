@@ -1,10 +1,116 @@
 {
-  "posts": [
+  "insurancePlans": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "insured": 15000,
+      "premium": 550,
+      "coverages":[
+        {
+          "url":"../../../assets/UOA.png",
+          "msg":"Unauthorized Online transaction"
+        },
+        {
+          "url":"../../../assets/phishing.png",
+          "msg":"Phishing & Email Spoofing"
+        },
+        {
+          "url":"../../../assets/e-rep.png",
+          "msg":"Damage to e-reputation"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "insured": 25000,
+      "premium": 1050,
+      "coverages":[
+        {
+          "url":"../../../assets/UOA.png",
+          "msg":"Unauthorized Online transaction"
+        },
+        {
+          "url":"../../../assets/phishing.png",
+          "msg":"Phishing & Email Spoofing"
+        },
+        {
+          "url":"../../../assets/e-rep.png",
+          "msg":"Damage to e-reputation"
+        },
+        {
+          "url":"../../../assets/identity_theft.png",
+          "msg":"Identity Theft"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "insured": 55000,
+      "premium": 1550,
+      "coverages":[
+        {
+          "url":"../../../assets/UOA.png",
+          "msg":"Unauthorized Online transaction"
+        },
+        {
+          "url":"../../../assets/phishing.png",
+          "msg":"Phishing & Email Spoofing"
+        },
+        {
+          "url":"../../../assets/e-rep.png",
+          "msg":"Damage to e-reputation"
+        },
+        {
+          "url":"../../../assets/identity_theft.png",
+          "msg":"Identity Theft"
+        },
+        {
+          "url":"../../../assets/cyber_bulling.png",
+          "msg":"Cyber bullying"
+        },
+        {
+          "url":"../../../assets/e-exot.png",
+          "msg":"e-Extortion"
+        }
+      ]
+      
+    },
+    {
+      "id": 4,
+      "insured": 85000,
+      "premium": 2550,
+      "coverages":[
+        {
+          "url":"../../../assets/UOA.png",
+          "msg":"Unauthorized Online transaction"
+        },
+        {
+          "url":"../../../assets/phishing.png",
+          "msg":"Phishing & Email Spoofing"
+        },
+        {
+          "url":"../../../assets/e-rep.png",
+          "msg":"Damage to e-reputation"
+        },
+        {
+          "url":"../../../assets/identity_theft.png",
+          "msg":"Identity Theft"
+        },
+        {
+          "url":"../../../assets/cyber_bulling.png",
+          "msg":"Cyber bullying"
+        },
+        {
+          "url":"../../../assets/e-exot.png",
+          "msg":"e-Extortion"
+        },
+        {
+          "url":"../../../assets/malware.png",
+          "msg":"Malware"
+        }
+      ]
+      
     }
+
   ],
   "comments": [
     {

@@ -1,44 +1,22 @@
 <div class="container">
     <div class="row">
-        <div id="plan1" class="plan-info my-3  col-3 text-center" (click)="clicked()">
+        <div id="plan" *ngFor="let plan of plans; let i = index" id="{{'child'+(i+1)}}" class="plan-info my-3  col-3 text-center" (click)="clicked(plan,i)">
             <div class="plan-info-content">
                 <h2>Sum Insured</h2>
-                <h3>$15,000</h3>
+                <h3>{{plan.insured | currency:'USD':'symbol'}}</h3>
                 <br>
-                <h4>$550</h4>
-                </div>
+                <h4>{{plan.premium | currency:'USD':'symbol'}}</h4>
+            </div>
         </div>
         
-        <div id="plan2" class=" plan-info my-3  col-3 text-center">
-            <div class="plan-info-content">
-                <h2>Sum Insured</h2>
-                <h3>$15,000</h3>
-                <br>
-                <h4>$550</h4>
-                </div>
-        </div>
-
-        <div id="plan3" class=" plan-info my-3  col-3 text-center">
-            <div class="plan-info-content">
-                <h2>Sum Insured</h2>
-                <h3>$15,000</h3>
-                <br>
-                <h4>$550</h4>
-                </div>
-        </div>
-
-        <div class=" plan-info my-3  col-3 text-center">
-            <div class="plan-info-content">
-                <h2>Sum Insured</h2>
-                <h3>$15,000</h3>
-                <br>
-                <h4>$550</h4>
-                </div>
-        </div>
+        
         
     </div>
     <div class="row my-4">
-        <div class="p-3 mb-2 bg-secondary text-center text-white coverage" style="font-size: 28px;">View Coverage<span class="mx-4">></span></div>
+        <div class="p-3 mb-2 bg-secondary text-center text-white coverage" style="font-size: 28px;" (click)="showCoverageDetails=!showCoverageDetails">View Coverage<span class="mx-4">></span></div>
+    </div>
+    <div class="row my-3 justify-content-md-center" style="width: 100%;margin: 0 2%;max-height: 200px;overflow: auto;" *ngIf="showCoverageDetails && (selectedPlan!=undefined || selectedPlan!=null)">
+        <span class="col-3 coverage mx-2 my-1 rounded" *ngFor="let coverage of coverages; let i = index"><img class="rounded" src="{{coverage.url}}" alt=""><p>{{coverage.msg}}</p></span>
     </div>
     <div class="row">
         <div class="col">
@@ -56,7 +34,7 @@
     </div>
     <div class="row my-5">
         <div class="col text-end">
-             <button class="btn btn-outline-primary btn-lg" style="width:25%">Proceed</button>   
+             <button class="btn btn-outline-primary btn-lg" style="width:25%" [disabled]= "(selectedPlan==undefined || selectedPlan==null)" (click)="proceed()">Proceed</button>   
         </div>
     </div>
 </div>

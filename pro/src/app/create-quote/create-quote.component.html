@@ -1,0 +1,99 @@
+<div>
+    <div class="col align-self-center dums">
+        <h1><i><span>C</span>yber <span>I</span>nsurance</i></h1>
+    </div>
+  </div>
+  <div class="row w-100">
+  <div class="col-7 h-100">
+    <div class="container mx-auto" style="text-align: center; margin-top: 5%;">
+      <div class="container">
+      <div>
+      <img src="../assets/logo.png" alt="" style="width: 15%;">
+      </div>
+      <h2 class="head-body my-3">Let's Get Started</h2>
+      <hr>
+      <form action="" class="quote-form" autocomplete="off" >
+        
+        <div class="form-group row" [formGroup] = "newLoginForm" >
+          <div class="col"  ></div>
+           <label for="zipcode" class=" col col-form-label">Zip Code</label>
+           
+           <div class="col-5 inp"  >
+            <!-- <em *ngIf = "!validateZipcode()"> Required </em> -->
+              <input  type="text" [style.border-left] = "!(validateZipcode()) ? '5px solid red' : 'none'" class="form-control" formControlName ="zipcode" id="zipcode" name="zipcode" id="" placeholder="Enter Zip Code">  
+              
+           </div>
+           <div class="col-1"></div>
+        </div>
+        
+        <div class="form-group row" [formGroup] = "newLoginForm" >
+          <div class="col"></div>
+           <label for="firstname" class=" col col-form-label">First Name</label>
+           <div class="col-5 inp">
+            <!-- <em *ngIf = "!validateFirstName()"> Required </em> -->
+              <input type="text" [style.border-left] = "!(validateFirstName()) ? '5px solid red' : 'none'" class="form-control" formControlName ="firstName" id="firstname"  name="firstname" id="" placeholder="Enter First Name">
+           </div>
+           <div class="col-1"></div>
+        </div>
+  
+        <div class="form-group row" [formGroup] = "newLoginForm">
+          <div class="col"></div>
+           <label for="lastname" class=" col col-form-label">Last Name</label>
+           <div class="col-5 inp">
+            <!-- <em *ngIf = "!validateLastName()"> Required </em> -->
+              <input type="text" [style.border-left] = "!(validateLastName()) ? '5px solid red' : 'none'" class="form-control" id="lastname"  formControlName ="lastName" name="lastname" id="" placeholder="Enter Last Name">
+           </div>
+           <div class="col-1"></div>
+        </div>
+  
+  
+        <div class="form-group row">
+          <div class="col"></div>
+          <button type="submit" [disabled] = newLoginForm.invalid class=" col align-self-center btn btn-primary my-3" style="background-color: #3b64ad;border-radius: 50px;font-size: 34px;height: 66px;line-height: 1.2rem;font-style: italic; " (click) = "saveQuote()">Get A Quote</button>
+          <div class="col"></div>
+        </div>
+  
+      </form>
+      <form style="width: 50%; margin: 0 auto;">
+        <div *ngIf="viewRetereivedDetails">
+          <div class="col-auto">
+            
+            <div class="input-group mb-2 view-quote-input">
+              <div class="input-group-prepend">
+                <div class="input-group-text" style="height: 100%;">@</div>
+              </div>
+              <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Please Enter Your Quote Reference ID">
+            </div>
+          </div>
+          <div class="col-auto">
+            
+            <div class="input-group mb-2 view-quote-input">
+              <div class="input-group-prepend">
+                <div class="input-group-text" style="height: 100%;">@</div>
+              </div>
+              <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Please Enter Your Registered Mobile Number">
+            </div>
+          </div>
+          <button type="submit" class=" col align-self-center btn btn-primary my-3" style="width:60%;background-color: #3b64ad;font-size: 34px;height: 66px;line-height: 1.2rem;font-style: italic;">Submit</button>
+        </div>
+        <div class="form-group row">
+          <button *ngIf="!viewRetereivedDetails" type="submit" (click) = "reteriveQuote()" class=" col align-self-center btn my-2" style="background-color: #ffffff;border-radius: 50px;font-size: 34px;height: 66px;line-height: 1.2rem;font-style: italic;"><b>Retreive Quote</b></button>
+        </div>
+      </form>
+      <hr>
+      <div class="row">
+        <div class="col align-self-center">
+          <img style="width: 100px;" src="../assets/comp_logo.png">
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="col-5 h-100 d-none d-lg-block">
+    <div class="mt-50 pic-div">
+      <img src="../assets/cyberlock.png" alt="">
+    </div>
+  </div>
+  </div>
+  
+    

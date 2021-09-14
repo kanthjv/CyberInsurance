@@ -33,11 +33,10 @@
         <div class="row"> 
             <div class="col-lg-8 col-sm-12" style="border: 1px solid black;" [ngSwitch]="showModule">
 
-                <app-choose-plan *ngSwitchCase="'choose_plan'"></app-choose-plan>
-                <app-personal-details *ngSwitchCase="'personal_details'"></app-personal-details>
-                <app-review-quote *ngSwitchCase="'review'"></app-review-quote>
-            <app-confirm *ngSwitchCase="'confirm'"></app-confirm>
-            
+                <app-choose-plan (onProceedFromChoosePlan)="updateShowModuleChoosePlan($event)" *ngSwitchCase="'choose_plan'"></app-choose-plan>
+                <app-personal-details (onProceedFromPersonalDetails)="updateShowModulePersonalDetail($event)" *ngSwitchCase="'personal_details'"></app-personal-details>
+                <app-review-quote [detailInfo]="capturedFromChilds" (onProceedFromQuoteReview)="updateShowModuleQuoteReview($event)"   *ngSwitchCase="'review-quote'"></app-review-quote>
+                <app-confirm *ngSwitchCase="'confirm'"></app-confirm>
             </div>
             <div class="col-3 d-none d-lg-block align-self-end pic-div">
                 <img src="../../../assets/cyberlock.png" alt="">

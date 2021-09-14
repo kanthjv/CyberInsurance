@@ -33,3 +33,26 @@
 .add-on button{
     font-size: 28px;
 }
+
+.active{
+    background-color: #FFE8B4 ;
+}
+
+.coverage{
+    border : 1px solid;
+    padding: 10px;
+    text-align: center;
+    font-style: italic;
+    color: black;
+    border-color: #0d6efd;
+}
+
+.coverage:hover{
+    cursor: pointer;
+    background-color: #0d6efd;
+    color: white;
+}
+
+.coverage span:hover{
+    
+}

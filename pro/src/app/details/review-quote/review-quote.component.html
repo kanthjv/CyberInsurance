@@ -4,7 +4,7 @@
             <b><p>Cover Details</p></b>
         </div>
         <div class="col-sm-3 my-2">
-            <button class="mt-2 coverage-details-edit"><i class="bi bi-pencil-square"> Edit</i></button>
+            <button class="mt-2 coverage-details-edit" (click)="editPlan()"><i class="bi bi-pencil-square"> Edit</i></button>
         </div>
     </div>
     <hr style="background-color: yellowgreen;height: 3px;">
@@ -19,7 +19,7 @@
             <tbody>
               <tr>
                 <th scope="row">Digital Security</th>
-                <td><b>{{15000 | currency:'USD':'symbol'}}</b></td>
+                <td><b>{{sumAssured | currency:'USD':'symbol'}}</b></td>
               </tr>
             </tbody>
           </table>
@@ -31,11 +31,11 @@
             <tbody>
               <tr>
                 <th scope="row">Digital Security</th>
-                <td><b>{{550 | currency:'USD':'symbol'}}</b></td>
+                <td><b>{{premium | currency:'USD':'symbol'}}</b></td>
               </tr>
               <tr>
                 <th scope="row">Tax</th>
-                <td><b>{{15 | currency:'USD':'symbol'}}</b></td>
+                <td><b>{{tax | currency:'USD':'symbol'}}</b></td>
               </tr>
               <tr style="border-bottom: 1px solid black;">
                 <th scope="row"></th>
@@ -44,14 +44,14 @@
               <!-- <hr style="width: 100%;"> -->
               <tr>
                 <th scope="row" style="color: #005482;"><b>Total Premium</b></th>
-                <td><b>{{565 | currency:'USD':'symbol'}}</b></td>
+                <td><b>{{total_premium | currency:'USD':'symbol'}}</b></td>
               </tr>
             </tbody>
           </table>
     </div>
     <div class="row my-5">
         <div class="col text-end">
-             <button class="btn btn-lg" style="width:25%;background-color: rgb(112,173,16);color: white;">Buy Now</button>   
+             <button class="btn btn-lg" (click)="proceedFromQR()" style="width:25%;background-color: rgb(112,173,16);color: white;">Buy Now</button>   
         </div>
     </div>
 </div>

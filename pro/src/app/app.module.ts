@@ -9,9 +9,13 @@ import { QuoteFillingProgressComponent } from './details/quote-filling-progress/
 import { ChoosePlanComponent } from './details/choose-plan/choose-plan.component';
 import { ReviewQuoteComponent } from './details/review-quote/review-quote.component';
 import { ConfirmComponent } from './details/confirm/confirm.component';
-// import { appRoutes } from './routes';
+
 import { RouterModule } from '@angular/router';
 import { CsAppComponent } from './cs.app.component';
+
+import { CreateQuoteComponent } from './create-quote/create-quote.component'
+import { PlanDetailsService } from './shared/plan-details.service';
+import {HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -22,16 +26,18 @@ import { CsAppComponent } from './cs.app.component';
     ChoosePlanComponent,
     ReviewQuoteComponent,
     ConfirmComponent,
+    CreateQuoteComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
-    // RouterModule.forRoot(appRoutes)
+    ReactiveFormsModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
-  bootstrap: [QuoteFillingProgressComponent]
+  providers: [PlanDetailsService],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

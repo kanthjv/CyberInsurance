@@ -62,7 +62,7 @@
             </div>
             <div class="row my-5 d-flex align-items-end flex-column">
                 <div class="col-4">
-                    <button style="font-size: 28px;"  [disabled] = "!personalForm.valid" class="btn-primary form-action-btn" (click)="expandAdditionalDetails();p(personalForm)">Done</button>
+                    <button style="font-size: 28px;"  [disabled] = "!personalForm.valid" class="btn-primary form-action-btn" (click)="expandAdditionalDetails();">Done</button>
                 </div>
                 
             </div>
@@ -73,13 +73,14 @@
                 <div class="row my-5" [formGroup] = "additionalForm">
                   <div class="form-group col-md-5 form-details">
                     <label for="inputEmail4">Polcy Start Date</label>
-                    <input type="date" required name="start_date" [ngClass]="{'show-error':(policy_start_date.invalid && (policy_start_date.dirty || policy_start_date.touched))}" class="form-control show-border"  formControlName ="policy_start_date">
+                    <input type="date" [min]="dateToday" required (focusout)="p(policy_start_date)" name="start_date" [ngClass]="{'show-error':(policy_start_date.invalid && (policy_start_date.dirty || policy_start_date.touched))}" class="form-control show-border"  formControlName ="policy_start_date">
                     <span [ngClass]="{'errs':(policy_start_date.invalid && (policy_start_date.dirty || policy_start_date.touched))}">*Required</span>
                   </div>
-                  <div class="form-group col-md-5 form-details">
+                  <div class="form-group col-md-5 form-details" *ngIf="(policy_start_date.valid && (policy_start_date.dirty || policy_start_date.touched))">
                     <label for="inputPassword4">Policy End Date</label>
-                    <input type="date" required name="end_date" [ngClass]="{'show-error':(policy_end_date.invalid && (policy_end_date.dirty || policy_end_date.touched))}"  class="form-control show-border"  formControlName ="policy_end_date" >
+                    <input type="date" [min]="policy_start_date.value" required name="end_date" [ngClass]="{'show-error':(policy_end_date.invalid && (policy_end_date.dirty || policy_end_date.touched))}"  class="form-control show-border"  formControlName ="policy_end_date" >
                     <span [ngClass]="{'errs':(policy_end_date.invalid && (policy_end_date.dirty || policy_end_date.touched))}">*Required</span>
+                    
                   </div>
                 </div>
                 <div class="col-md-10">
@@ -132,6 +133,6 @@
         </div>
         <div *ngIf="areDetailsFilled" class="row my-5 d-flex align-items-end flex-column">
             <div class="col-4">
-                <button style="font-size: 28px;" class="btn-primary form-action-btn">Proceed</button>
+                <button style="font-size: 28px;" class="btn-primary form-action-btn" (click)="proceedFromPD()">Proceed</button>
             </div>
         </div>    

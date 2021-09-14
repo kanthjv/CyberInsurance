@@ -1,6 +1,7 @@
 
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Form, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { IQuote } from 'src/app/shared/quote';
 @Component({
   selector: 'app-personal-details',
@@ -9,7 +10,10 @@ import { IQuote } from 'src/app/shared/quote';
 })
 export class PersonalDetailsComponent implements OnInit {
 
-  constructor() { }
+  @Output() onProceedFromPersonalDetails = new EventEmitter<any>()
+  constructor(private route:ActivatedRoute) { }
+  dateToday = new Date().toISOString().slice(0, 10);
+  quotes !:IQuote
   personalForm !: FormGroup
   //  salutation !: FormControl
    name!: FormControl
@@ -18,6 +22,7 @@ export class PersonalDetailsComponent implements OnInit {
    phonenumber !: FormControl
    ssn_number!: FormControl
    income_source!: FormControl
+
 
 
   additionalForm !: FormGroup
@@ -41,8 +46,9 @@ export class PersonalDetailsComponent implements OnInit {
   //   }
 
 //}
-p(df:FormGroup){
+p(df:FormControl){
   console.log(df)
+  console.log(this.policy_start_date)
 }
   showPersonalDetailsBtn:boolean=true;
   showAdditionalDetailsBtn:boolean=false;
@@ -53,15 +59,17 @@ p(df:FormGroup){
   areDetailsFilled:boolean=false
   ngOnInit() {
 
+    this.quotes = this.route.snapshot.data['details']
+
     // this.salutation = new FormControl('',Validators.required)
-    this.name = new FormControl('',Validators.required)
-    this.dob = new FormControl('',Validators.required)
+    this.name = new FormControl('sadfsf',Validators.required)
+    this.dob = new FormControl('dsfsdfdsf',Validators.required)
     this.emails = new FormControl('abc@co',[Validators.required,Validators.email])
     this.phonenumber = new FormControl('+91 0123456789',[Validators.required,Validators.pattern("^((\\+91 ?)|0)?[0-9]{10}$")])
-    this.ssn_number = new FormControl('',Validators.required)
-    this.income_source = new FormControl('',Validators.required)
+    this.ssn_number = new FormControl('dsfsdf',Validators.required)
+    this.income_source = new FormControl('dsfsdf',Validators.required)
     this.policy_start_date =  new FormControl('',Validators.required)
-    this.policy_end_date = new FormControl ('',Validators.required)
+    this.policy_end_date = new FormControl ('',[Validators.required])
 
     this.personalForm = new FormGroup({
       // salutation : this.salutation,
@@ -77,40 +85,24 @@ p(df:FormGroup){
       policy_start_date: this.policy_start_date,
       policy_end_date : this.policy_end_date
     })
+
+    
+
+  }
+
+  validateEndDate(c: FormControl){
+    
+    return (c.value > this.policy_start_date.value)?null:{
+      endDateInvalid:{
+        message:"InvalidEndDate"
+      }
+    }
   }
 
   
   
 
-  validateName(){
-    return this.name.valid || this.name.untouched
-  }
-
-  validateDob(){
-    return this.dob.valid || this.dob.untouched
-  }
-
   
-
-  validatePhoneNumber(){
-    return this.phonenumber.valid || this.phonenumber.untouched
-  }
-
-  validateSsn(){
-    return this.ssn_number.valid || this.ssn_number.untouched
-  }
-
-  validateSource(){
-    return this.income_source.valid || this.income_source.untouched
-  }
-
-  validateStratDate(){
-    return this.policy_start_date.valid || this.policy_start_date.untouched
-  }
-
-  validateEndDate(){
-    return this.policy_end_date.valid || this.policy_end_date.untouched
-  }
 
 
 
@@ -148,4 +140,11 @@ p(df:FormGroup){
     this.areDetailsFilled = true
   }
 
+  proceedFromPD(){
+    //console.log("quote")
+    this.onProceedFromPersonalDetails.emit({updateModule:"review-quote"})
+  }
+
 }
+
+
