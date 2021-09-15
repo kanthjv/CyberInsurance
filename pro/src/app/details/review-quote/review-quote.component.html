@@ -1,4 +1,6 @@
-<div class="col-6">
+
+<div class="row">
+<div class="col">
     <div class="row" style="background-color: #f2f2f2; font-size: 50px; color: #005482;">
         <div class="col-sm-9" >
             <b><p>Cover Details</p></b>
@@ -21,6 +23,10 @@
                 <th scope="row">Digital Security</th>
                 <td><b>{{sumAssured | currency:'USD':'symbol'}}</b></td>
               </tr>
+              <tr>
+                <th scope="row">Addon-ons</th>
+                <td><b>{{addonCost | currency:'USD':'symbol'}}</b></td>
+              </tr>
             </tbody>
           </table>
     </div>
@@ -33,6 +39,7 @@
                 <th scope="row">Digital Security</th>
                 <td><b>{{premium | currency:'USD':'symbol'}}</b></td>
               </tr>
+              
               <tr>
                 <th scope="row">Tax</th>
                 <td><b>{{tax | currency:'USD':'symbol'}}</b></td>
@@ -49,9 +56,53 @@
             </tbody>
           </table>
     </div>
-    <div class="row my-5">
-        <div class="col text-end">
-             <button class="btn btn-lg" (click)="proceedFromQR()" style="width:25%;background-color: rgb(112,173,16);color: white;">Buy Now</button>   
-        </div>
+    
+</div>
+<div class="col">
+  <div class="row" style="background-color: #f2f2f2; font-size: 50px; color: #005482;">
+    <div class="col-sm-9" >
+        <b><p>Personal Details</p></b>
+      </div>
+      <div class="col-sm-3 my-2">
+          <button class="mt-2 coverage-details-edit" (click)="editDetails()"><i class="bi bi-pencil-square"> Edit</i></button>
+      </div>
     </div>
+    <hr style="background-color: yellowgreen;height: 3px;">
+    <div class="my-3">
+        <table class="table table-borderless" style="font-size: 28px;">
+            <tbody>
+              <tr>
+                <th scope="row">Name</th>
+                <td><b>{{quote_details.person?.name}}</b></td>
+              </tr>
+              <tr>
+                <th scope="row">DOB</th>
+                <td><b>{{quote_details.person?.dob}}</b></td>
+              </tr>
+              <tr>
+                <th scope="row">Email</th>
+                <td><b>{{quote_details.person?.email}}</b></td>
+              </tr>
+              <tr>
+                <th scope="row">Phone Number</th>
+                <td><b>{{quote_details.person?.phonenumber}}</b></td>
+              </tr>
+              <hr>
+              <tr>
+                <th scope="row">Start Date</th>
+                <td><b>{{quote_details.policy_start_date}}</b></td>
+              </tr>
+              <tr>
+                <th scope="row">End Date</th>
+                <td><b>{{quote_details.policy_end_date}}</b></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="row my-5">
+      <div class="col text-end">
+           <button class="btn btn-lg" (click)="proceedFromQR()" style="width:25%;background-color: rgb(112,173,16);color: white;">Buy Now</button>   
+      </div>
+  </div>
+</div>
 </div>

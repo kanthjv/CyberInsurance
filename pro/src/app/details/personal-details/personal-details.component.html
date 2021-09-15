@@ -10,7 +10,7 @@
             <div class="container  row my-5">
                 <div class="col-sm-4 form-details">
                     <div class="form-check form-check-inline" style="font-size: 20px;color: black;">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                        <input class="form-check-input" checked type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
                         <label class="form-check-label" for="inlineRadio1">Mr.</label>
                       </div>
                       <div class="form-check form-check-inline">
@@ -29,7 +29,7 @@
                 <div class="col-sm-4 form-details">
                     <!-- <input placeholder="Date" class="form-control" type="text" onfocus="(this.type='date')" onblur="(this.value == '' ? this.type='text' : this.type='date')" id="date"> -->
 
-                    <input type="date" [ngClass]="{'show-error':(dob.invalid && (dob.dirty || dob.touched))}" formControlName ="dob" class="form-control show-border" placeholder="DOB">
+                    <input type="date" [max]="dateToday" [ngClass]="{'show-error':(dob.invalid && (dob.dirty || dob.touched))}" formControlName ="dob" class="form-control show-border" placeholder="DOB">
                     <span [ngClass]="{'errs':(dob.invalid && (dob.dirty || dob.touched))}">*Required</span>
                     
                 </div>
@@ -62,7 +62,7 @@
             </div>
             <div class="row my-5 d-flex align-items-end flex-column">
                 <div class="col-4">
-                    <button style="font-size: 28px;"  [disabled] = "!personalForm.valid" class="btn-primary form-action-btn" (click)="expandAdditionalDetails();">Done</button>
+                    <button style="font-size: 28px;"  [disabled] = "!personalForm.valid" class="btn btn-outline-primary btn-lg form-action-btn" (click)="expandAdditionalDetails();">Done</button>
                 </div>
                 
             </div>
@@ -92,7 +92,7 @@
             <button class="btn btn-danger btn-sm mx-2">No</button>
             <div class="row my-5 d-flex align-items-end flex-column">
                 <div class="col-4">
-                    <button style="font-size: 28px;" [disabled] = additionalForm.invalid class="btn-primary form-action-btn" (click)="expandIncidentHistory()">Done</button>
+                    <button style="font-size: 28px;" [disabled] = additionalForm.invalid class="btn btn-outline-primary btn-lg form-action-btn" (click)="expandIncidentHistory()">Done</button>
                 </div>
                 
             </div>
@@ -100,10 +100,10 @@
         </div>
         <div *ngIf="showIncidentsHistory">
             <div class="my-4" style="font-size:28px">
-                <form action="">
+                <form action="" id="incidentHistory">
                     <p style="font-size:28px">Select the options that are applicable to you</p>
                     <div class="custom-control custom-radio quote-radio">
-                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" (change)="updateIncHistory($event)">
                         <label class="custom-control-label" for="customRadio1">My family's or my computer(s) / smart device(s) has been hacked before
                         </label>
                     </div>
@@ -114,17 +114,17 @@
                     </div>
                     <div class="custom-control custom-radio quote-radio">
                         <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
-                        <label class="custom-control-label" for="customRadio3">My family or I have filed a complaint or law suit in the past due to invasion of privacy or misuse of PI.
+                        <label class="custom-control-label" for="customRadio3">My family or I have filed a complaint or law suit in past due to invasion of privacy or misuse of PI.
                         </label>
                     </div>
                     <div class="custom-control custom-radio quote-radio">
-                        <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input">
+                        <input type="radio" id="customRadio4" name="customRadio" checked class="custom-control-input">
                         <label class="custom-control-label" for="customRadio4">None of the above applies to my family or me.
                         </label>
                     </div>
                     <div class="row my-4 d-flex align-items-end flex-column">
                         <div class="col-4">
-                            <button style="font-size: 28px;" class="btn-primary form-action-btn" (click)="detailsFilled()">Done</button>
+                            <button style="font-size: 28px;" class="btn btn-outline-primary btn-lg form-action-btn" (click)="detailsFilled()">Done</button>
                         </div>
                         
                     </div>
@@ -133,6 +133,6 @@
         </div>
         <div *ngIf="areDetailsFilled" class="row my-5 d-flex align-items-end flex-column">
             <div class="col-4">
-                <button style="font-size: 28px;" class="btn-primary form-action-btn" (click)="proceedFromPD()">Proceed</button>
+                <button style="font-size: 28px;" class="btn btn-outline-primary btn-lg form-action-btn" (click)="proceedFromPD()">Proceed</button>
             </div>
         </div>    

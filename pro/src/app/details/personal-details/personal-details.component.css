@@ -46,9 +46,7 @@ form-action-btn:hover:disabled{
     margin-left: 10px;
 }
 
-input[type=radio]{
-    transform:scale(1.5);
-  }
+
 
 /* input[type=date] {
     text-align: right;

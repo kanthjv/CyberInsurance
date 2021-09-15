@@ -4,18 +4,50 @@
       "id": 1,
       "insured": 15000,
       "premium": 550,
-      "coverages":[
+      "coverages": [
         {
-          "url":"../../../assets/UOA.png",
-          "msg":"Unauthorized Online transaction"
+          "coverage_id": 1,
+          "amount": 5000,
+          "url": "../../../assets/UOA.png",
+          "msg": "Unauthorized Online transaction"
         },
         {
-          "url":"../../../assets/phishing.png",
-          "msg":"Phishing & Email Spoofing"
+          "coverage_id": 2,
+          "amount": 5000,
+          "url": "../../../assets/phishing.png",
+          "msg": "Phishing & Email Spoofing"
         },
         {
-          "url":"../../../assets/e-rep.png",
-          "msg":"Damage to e-reputation"
+          "coverage_id": 3,
+          "amount": 5000,
+          "url": "../../../assets/e-rep.png",
+          "msg": "Damage to e-reputation"
+        }
+      ],
+      "addons": [
+        {
+          "coverage_id": 4,
+          "amount": 5000,
+          "url": "../../../assets/identity_theft.png",
+          "msg": "Identity Theft"
+        },
+        {
+          "coverage_id": 5,
+          "amount": 5000,
+          "url": "../../../assets/cyber_bulling.png",
+          "msg": "Cyber bullying"
+        },
+        {
+          "coverage_id": 6,
+          "amount": 5000,
+          "url": "../../../assets/e-exot.png",
+          "msg": "e-Extortion"
+        },
+        {
+          "coverage_id": 7,
+          "amount": 5000,
+          "url": "../../../assets/malware.png",
+          "msg": "Malware"
         }
       ]
     },
@@ -23,103 +55,325 @@
       "id": 2,
       "insured": 25000,
       "premium": 1050,
-      "coverages":[
+      "coverages": [
         {
-          "url":"../../../assets/UOA.png",
-          "msg":"Unauthorized Online transaction"
+          "coverage_id": 1,
+          "amount": 5000,
+          "url": "../../../assets/UOA.png",
+          "msg": "Unauthorized Online transaction"
         },
         {
-          "url":"../../../assets/phishing.png",
-          "msg":"Phishing & Email Spoofing"
+          "coverage_id": 2,
+          "amount": 5000,
+          "url": "../../../assets/phishing.png",
+          "msg": "Phishing & Email Spoofing"
         },
         {
-          "url":"../../../assets/e-rep.png",
-          "msg":"Damage to e-reputation"
+          "coverage_id": 3,
+          "amount": 5000,
+          "url": "../../../assets/e-rep.png",
+          "msg": "Damage to e-reputation"
         },
         {
-          "url":"../../../assets/identity_theft.png",
-          "msg":"Identity Theft"
+          "coverage_id": 4,
+          "amount": 5000,
+          "url": "../../../assets/identity_theft.png",
+          "msg": "Identity Theft"
+        }
+      ],
+      "addons": [
+        {
+          "coverage_id": 5,
+          "amount": 5000,
+          "url": "../../../assets/cyber_bulling.png",
+          "msg": "Cyber bullying"
+        },
+        {
+          "coverage_id": 6,
+          "amount": 5000,
+          "url": "../../../assets/e-exot.png",
+          "msg": "e-Extortion"
+        },
+        {
+          "coverage_id": 7,
+          "amount": 5000,
+          "url": "../../../assets/malware.png",
+          "msg": "Malware"
         }
       ]
     },
     {
-      "id": 1,
+      "id": 3,
       "insured": 55000,
       "premium": 1550,
-      "coverages":[
+      "coverages": [
         {
-          "url":"../../../assets/UOA.png",
-          "msg":"Unauthorized Online transaction"
+          "coverage_id": 1,
+          "amount": 5000,
+          "url": "../../../assets/UOA.png",
+          "msg": "Unauthorized Online transaction"
         },
         {
-          "url":"../../../assets/phishing.png",
-          "msg":"Phishing & Email Spoofing"
+          "coverage_id": 2,
+          "amount": 5000,
+          "url": "../../../assets/phishing.png",
+          "msg": "Phishing & Email Spoofing"
         },
         {
-          "url":"../../../assets/e-rep.png",
-          "msg":"Damage to e-reputation"
+          "coverage_id": 3,
+          "amount": 5000,
+          "url": "../../../assets/e-rep.png",
+          "msg": "Damage to e-reputation"
         },
         {
-          "url":"../../../assets/identity_theft.png",
-          "msg":"Identity Theft"
+          "coverage_id": 4,
+          "amount": 5000,
+          "url": "../../../assets/identity_theft.png",
+          "msg": "Identity Theft"
         },
         {
-          "url":"../../../assets/cyber_bulling.png",
-          "msg":"Cyber bullying"
+          "coverage_id": 5,
+          "amount": 5000,
+          "url": "../../../assets/cyber_bulling.png",
+          "msg": "Cyber bullying"
         },
         {
-          "url":"../../../assets/e-exot.png",
-          "msg":"e-Extortion"
+          "coverage_id": 6,
+          "amount": 5000,
+          "url": "../../../assets/e-exot.png",
+          "msg": "e-Extortion"
+        }
+      ],
+      "addons": [
+        {
+          "coverage_id": 7,
+          "amount": 5000,
+          "url": "../../../assets/malware.png",
+          "msg": "Malware"
         }
       ]
-      
     },
     {
       "id": 4,
       "insured": 85000,
       "premium": 2550,
-      "coverages":[
+      "coverages": [
         {
-          "url":"../../../assets/UOA.png",
-          "msg":"Unauthorized Online transaction"
+          "coverage_id": 1,
+          "amount": 5000,
+          "url": "../../../assets/UOA.png",
+          "msg": "Unauthorized Online transaction"
         },
         {
-          "url":"../../../assets/phishing.png",
-          "msg":"Phishing & Email Spoofing"
+          "coverage_id": 2,
+          "amount": 5000,
+          "url": "../../../assets/phishing.png",
+          "msg": "Phishing & Email Spoofing"
         },
         {
-          "url":"../../../assets/e-rep.png",
-          "msg":"Damage to e-reputation"
+          "coverage_id": 3,
+          "amount": 5000,
+          "url": "../../../assets/e-rep.png",
+          "msg": "Damage to e-reputation"
         },
         {
-          "url":"../../../assets/identity_theft.png",
-          "msg":"Identity Theft"
+          "coverage_id": 4,
+          "amount": 5000,
+          "url": "../../../assets/identity_theft.png",
+          "msg": "Identity Theft"
         },
         {
-          "url":"../../../assets/cyber_bulling.png",
-          "msg":"Cyber bullying"
+          "coverage_id": 5,
+          "amount": 5000,
+          "url": "../../../assets/cyber_bulling.png",
+          "msg": "Cyber bullying"
         },
         {
-          "url":"../../../assets/e-exot.png",
-          "msg":"e-Extortion"
+          "coverage_id": 6,
+          "amount": 5000,
+          "url": "../../../assets/e-exot.png",
+          "msg": "e-Extortion"
         },
         {
-          "url":"../../../assets/malware.png",
-          "msg":"Malware"
+          "coverage_id": 7,
+          "amount": 5000,
+          "url": "../../../assets/malware.png",
+          "msg": "Malware"
         }
-      ]
-      
+      ],
+      "addons": []
     }
-
   ],
-  "comments": [
+  "quotes": [
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": "ktlqhupogi195hmc2jt",
+      "policy_start_date": "2021-09-16",
+      "policy_end_date": "2021-10-14",
+      "person": {
+        "name": "Kantharao Juluru",
+        "dob": "2021-09-16",
+        "email": "kanth@gmail.com",
+        "phonenumber": "+91 0123456789",
+        "ssn_number": "BAMPLKSJHSK",
+        "income_source": "Self"
+      },
+      "total_premium": 1352.5,
+      "plan": {
+        "id": 2,
+        "insured": 25000,
+        "premium": 1050,
+        "coverages": [
+          {
+            "coverage_id": 1,
+            "amount": 5000,
+            "url": "../../../assets/UOA.png",
+            "msg": "Unauthorized Online transaction"
+          },
+          {
+            "coverage_id": 2,
+            "amount": 5000,
+            "url": "../../../assets/phishing.png",
+            "msg": "Phishing & Email Spoofing"
+          },
+          {
+            "coverage_id": 3,
+            "amount": 5000,
+            "url": "../../../assets/e-rep.png",
+            "msg": "Damage to e-reputation"
+          },
+          {
+            "coverage_id": 4,
+            "amount": 5000,
+            "url": "../../../assets/identity_theft.png",
+            "msg": "Identity Theft"
+          }
+        ],
+        "addons": [
+          {
+            "coverage_id": 6,
+            "amount": 5000,
+            "url": "../../../assets/e-exot.png",
+            "msg": "e-Extortion"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ktlqqlzf9knf8zkxuhc",
+      "policy_start_date": "2021-09-16",
+      "policy_end_date": "2021-09-17",
+      "person": {
+        "name": "Krishna",
+        "dob": "2021-09-16",
+        "email": "krish@gm.co",
+        "phonenumber": "+91 9847561253",
+        "ssn_number": "JKLASMC098S",
+        "income_source": "Employee"
+      },
+      "total_premium": 1602.5,
+      "plan": {
+        "id": 2,
+        "insured": 25000,
+        "premium": 1050,
+        "coverages": [
+          {
+            "coverage_id": 1,
+            "amount": 5000,
+            "url": "../../../assets/UOA.png",
+            "msg": "Unauthorized Online transaction"
+          },
+          {
+            "coverage_id": 2,
+            "amount": 5000,
+            "url": "../../../assets/phishing.png",
+            "msg": "Phishing & Email Spoofing"
+          },
+          {
+            "coverage_id": 3,
+            "amount": 5000,
+            "url": "../../../assets/e-rep.png",
+            "msg": "Damage to e-reputation"
+          },
+          {
+            "coverage_id": 4,
+            "amount": 5000,
+            "url": "../../../assets/identity_theft.png",
+            "msg": "Identity Theft"
+          }
+        ],
+        "addons": [
+          {
+            "coverage_id": 5,
+            "amount": 5000,
+            "url": "../../../assets/cyber_bulling.png",
+            "msg": "Cyber bullying"
+          },
+          {
+            "coverage_id": 7,
+            "amount": 5000,
+            "url": "../../../assets/malware.png",
+            "msg": "Malware"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ktlrmk1v5xktofgvv7",
+      "policy_start_date": "2021-09-16",
+      "policy_end_date": "2021-09-22",
+      "person": {
+        "name": "Kantz",
+        "dob": "2021-09-16",
+        "email": "Kanth@cd.com",
+        "phonenumber": "+91 0123456789",
+        "ssn_number": "LASKOISNNS",
+        "income_source": "Paid"
+      },
+      "total_premium": 1627.5,
+      "plan": {
+        "id": 3,
+        "insured": 55000,
+        "premium": 1550,
+        "coverages": [
+          {
+            "coverage_id": 1,
+            "amount": 5000,
+            "url": "../../../assets/UOA.png",
+            "msg": "Unauthorized Online transaction"
+          },
+          {
+            "coverage_id": 2,
+            "amount": 5000,
+            "url": "../../../assets/phishing.png",
+            "msg": "Phishing & Email Spoofing"
+          },
+          {
+            "coverage_id": 3,
+            "amount": 5000,
+            "url": "../../../assets/e-rep.png",
+            "msg": "Damage to e-reputation"
+          },
+          {
+            "coverage_id": 4,
+            "amount": 5000,
+            "url": "../../../assets/identity_theft.png",
+            "msg": "Identity Theft"
+          },
+          {
+            "coverage_id": 5,
+            "amount": 5000,
+            "url": "../../../assets/cyber_bulling.png",
+            "msg": "Cyber bullying"
+          },
+          {
+            "coverage_id": 6,
+            "amount": 5000,
+            "url": "../../../assets/e-exot.png",
+            "msg": "e-Extortion"
+          }
+        ],
+        "addons": []
+      }
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

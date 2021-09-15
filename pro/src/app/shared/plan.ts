@@ -3,5 +3,6 @@ export class IPlan{
     insured!:number;
     premium!:number;
     coverages!:Array<{url:string,msg:string}>;
+    addons!:Array<{url:string,msg:string}>;
 
 }

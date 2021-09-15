@@ -15,12 +15,12 @@ export class CreateQuoteComponent implements OnInit {
 
   newLoginForm !: FormGroup
 
-  private zipcode !: FormControl
-  private firstName !: FormControl
-  private lastName !: FormControl
+  zipcode !: FormControl
+  firstName !: FormControl
+  lastName !: FormControl
   constructor(private router:Router){}
     ngOnInit(){
-      this.zipcode =new FormControl(this.zipcode, [Validators.required,Validators.minLength(6),Validators.maxLength(6)])
+      this.zipcode =new FormControl(this.zipcode, [Validators.required,Validators.pattern("^[0-9]{6}$")])
       this.firstName = new FormControl(this.firstName, Validators.required)
       this.lastName = new FormControl(this.lastName, Validators.required)
 
@@ -49,6 +49,9 @@ export class CreateQuoteComponent implements OnInit {
     return this.lastName.valid || this.lastName.untouched
   }
     
+  p(df: FormControl){
+    console.log(df)
+  }
 
   saveQuote( ){
     console.log("in Zipcode")

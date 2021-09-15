@@ -1,7 +1,4 @@
-body{
-    font-size: 30px !important;
-    ;
-}
+
 h1{
     color: #005482;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -74,4 +71,3 @@ em {float : right; color: #E05C65; padding-left : 10px;}
     border-left: 2px solid red;
 }
 .error ::-webkit-input-placeholder {color:#999; }
-

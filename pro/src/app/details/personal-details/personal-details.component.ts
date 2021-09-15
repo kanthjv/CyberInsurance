@@ -2,7 +2,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Form, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { IQuote } from 'src/app/shared/quote';
+import { IPerson, IQuote } from 'src/app/shared/quote';
+import * as $ from 'jquery'
+
 @Component({
   selector: 'app-personal-details',
   templateUrl: './personal-details.component.html',
@@ -13,7 +15,8 @@ export class PersonalDetailsComponent implements OnInit {
   @Output() onProceedFromPersonalDetails = new EventEmitter<any>()
   constructor(private route:ActivatedRoute) { }
   dateToday = new Date().toISOString().slice(0, 10);
-  quotes !:IQuote
+  quote :IQuote = new IQuote();
+  person : IPerson = new IPerson()
   personalForm !: FormGroup
   //  salutation !: FormControl
    name!: FormControl
@@ -22,30 +25,13 @@ export class PersonalDetailsComponent implements OnInit {
    phonenumber !: FormControl
    ssn_number!: FormControl
    income_source!: FormControl
+   sels!:any
 
 
-
-  additionalForm !: FormGroup
+   additionalForm !: FormGroup
    policy_start_date!: FormControl
    policy_end_date!: FormControl
-  // quote = {
-  //   id:1,
-  //   incidents_history:'kanth',
-  //   policy_start_date:new Date(),
-  //   policy_end_date: new Date(),
-  //   person:{
-  //       id:"sndsaj",
-  //       salutation:"fsdfksdbf",
-  //       firstname:"asndksj",
-  //       lastname:"dfnsdf",
-  //       dob:new Date(),
-  //       email:"sdnsakjn",
-  //       phonenumber:"dfnsdfj",
-  //       ssn_number:"jfdns",
-  //       income_source:"dfnsdkjfn"
-  //   }
-
-//}
+ 
 p(df:FormControl){
   console.log(df)
   console.log(this.policy_start_date)
@@ -57,18 +43,19 @@ p(df:FormControl){
   showAdditionalDetails:boolean=false;
   showIncidentsHistory:boolean=false
   areDetailsFilled:boolean=false
+  selectedOption!:any
   ngOnInit() {
 
-    this.quotes = this.route.snapshot.data['details']
+    
 
     // this.salutation = new FormControl('',Validators.required)
-    this.name = new FormControl('sadfsf',Validators.required)
-    this.dob = new FormControl('dsfsdfdsf',Validators.required)
-    this.emails = new FormControl('abc@co',[Validators.required,Validators.email])
+    this.name = new FormControl('',Validators.required)
+    this.dob = new FormControl('',Validators.required)
+    this.emails = new FormControl('',[Validators.required,Validators.email])
     this.phonenumber = new FormControl('+91 0123456789',[Validators.required,Validators.pattern("^((\\+91 ?)|0)?[0-9]{10}$")])
-    this.ssn_number = new FormControl('dsfsdf',Validators.required)
-    this.income_source = new FormControl('dsfsdf',Validators.required)
-    this.policy_start_date =  new FormControl('',Validators.required)
+    this.ssn_number = new FormControl('',Validators.required)
+    this.income_source = new FormControl('',Validators.required)
+    this.policy_start_date =  new FormControl(this.dateToday,Validators.required)
     this.policy_end_date = new FormControl ('',[Validators.required])
 
     this.personalForm = new FormGroup({
@@ -87,9 +74,15 @@ p(df:FormControl){
     })
 
     
+    
+  }
+  getFormControlValue(c:FormControl){
+
+    return c.value;
 
   }
 
+  
   validateEndDate(c: FormControl){
     
     return (c.value > this.policy_start_date.value)?null:{
@@ -100,12 +93,6 @@ p(df:FormControl){
   }
 
   
-  
-
-  
-
-
-
   expandPersonalDetails(){
     this.showAdditionalDetailsBtn = false
     this.showIncidentsHistoryBtn = false
@@ -113,6 +100,7 @@ p(df:FormControl){
     this.showAdditionalDetails = false
     this.showIncidentsHistory = false
     this.showPersonalDetailsBtn = true
+    this.areDetailsFilled = false
   }
 
   expandAdditionalDetails(){
@@ -122,6 +110,7 @@ p(df:FormControl){
     this.showPersonalDetails = false
     this.showAdditionalDetails = true
     this.showIncidentsHistory = false
+    this.areDetailsFilled = false
   }
 
   expandIncidentHistory(){
@@ -131,6 +120,7 @@ p(df:FormControl){
     this.showPersonalDetails = false
     this.showAdditionalDetails = false
     this.showIncidentsHistory = true
+    this.areDetailsFilled = false
   }
 
   detailsFilled(){
@@ -140,9 +130,42 @@ p(df:FormControl){
     this.areDetailsFilled = true
   }
 
+ 
+  
+  updateIncHistory(e:any){
+    this.selectedOption = e.target.value;
+    console.log(this.selectedOption)
+  }
+  
+  
+  
+
   proceedFromPD(){
-    //console.log("quote")
-    this.onProceedFromPersonalDetails.emit({updateModule:"review-quote"})
+    
+    //this.updatePerson("name",this.getFormControlValue(this.name))
+    this.person.name = this.getFormControlValue(this.name)
+    this.person.dob = this.personalForm.get("dob")?.value;
+    this.person.email = this.personalForm.get("emails")?.value;
+    this.person.phonenumber = this.personalForm.get("phonenumber")?.value;
+    this.person.ssn_number = this.personalForm.get("ssn_number")?.value;
+    this.person.income_source = this.personalForm.get("income_source")?.value
+
+    this.quote.id = Date.now().toString(36) + Math.random().toString(36).substring(2);
+    this.quote.policy_start_date = this.additionalForm.get("policy_start_date")?.value
+    this.quote.policy_end_date = this.additionalForm.get("policy_end_date")?.value
+
+    
+    
+
+    
+    // this.selectedOption = document.querySelector("input:radio[name=custom-radio]:checked")
+    // console.log(this.selectedOption)
+    
+
+    this.quote.person = this.person
+
+
+    this.onProceedFromPersonalDetails.emit({updateModule:"review-quote","personalInfo":this.quote})
   }
 
 }

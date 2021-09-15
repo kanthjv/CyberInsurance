@@ -16,19 +16,23 @@
         <div class="p-3 mb-2 bg-secondary text-center text-white coverage" style="font-size: 28px;" (click)="showCoverageDetails=!showCoverageDetails">View Coverage<span class="mx-4">></span></div>
     </div>
     <div class="row my-3 justify-content-md-center" style="width: 100%;margin: 0 2%;max-height: 200px;overflow: auto;" *ngIf="showCoverageDetails && (selectedPlan!=undefined || selectedPlan!=null)">
-        <span class="col-3 coverage mx-2 my-1 rounded" *ngFor="let coverage of coverages; let i = index"><img class="rounded" src="{{coverage.url}}" alt=""><p>{{coverage.msg}}</p></span>
+        <span class="col-3 coverage mx-2 my-1 rounded" *ngFor="let coverage of coverages; let i = index" ><img class="rounded" src="{{coverage.url}}" alt=""><p>{{coverage.msg}}</p></span>
     </div>
-    <div class="row">
-        <div class="col">
-            <p style="font-size: 28px;font-style: italic;">Select Add On To Cover</p>
+    <p *ngIf="!showAddons" style="font-size: 28px;font-style: italic;">Choose A plan to see addons</p>
+    <div *ngIf="showAddons" class="row">
+        <div class="col-5 addon">
+            <p  style="font-size: 28px;font-style: italic;">Select Add On To Cover</p>
+            <!-- <span class="col-3 coverage mx-2 my-1 rounded" *ngFor="let addon of addons; let i = index"><img style="width: 20px;" class="rounded" src="{{addon.url}}" alt=""><span style="transform: none;">{{addon.msg}}</span></span> -->
+            <!-- <span class="col-3 coverage mx-2 my-1 rounded" ></span> -->
+            
+            <button class="btn coverage btn-primary-outline btn-lg my-2 rounded"  *ngFor="let addon of addons; let k = index" id="{{'addonChild'+(k+1)}}" style="width: 60%; display: block;" (click)=addSelectedAddon(addon,k) > <img style="width: 20%;" class="rounded" src="{{addon.url}}" alt=""><span style="transform: none; padding:0 10px;">{{addon.msg}}</span> <i style="padding-left: 10px;font-size: 28px;display: inline-block;" class="bi bi-plus-circle mt-2"></i></button>
                 
-                <button class="btn btn-primary btn-lg my-2" style="width: 50%; display: block;"><i class="bi bi-shield"></i> Malware <i class="bi bi-plus-circle"></i></button>
-                <button class="btn btn-primary btn-lg my-2" style="width: 50%; display: block;"><i class="bi bi-shield"></i> Malware <i class="bi bi-plus-circle"></i></button>
         </div>
-        <div class="col">
-            <p style="font-size: 28px;font-style: italic;">Selected Add-Ons</p>
-            <div class="borders" style="height: 20px;">
-
+        <div class="col-7" style="border-left: 2px solid black;">
+            <p style="font-size: 28px;font-style: italic;">Selected Add-Ons. Price {{addonPrice | currency:'USD':'symbol' }}</p>
+            <hr>
+            <div>
+                <button *ngFor="let selAddon of selectedAddons; let j = index" id="{{'seladdonChild'+(j+1)}}" class="btn coverage btn-danger remove-addon btn-lg col-5 mx-2 my-2 rounded"  (click)=removeSelectedAddon(selAddon) > <img style="width: 20%;" class="rounded" src="{{selAddon.url}}" alt=""><span style="transform: none; padding:0 10px;">{{selAddon.msg}}</span> <i style="padding-left: 10px;font-size: 28px;display: inline-block;" class="bi bi-trash2 mt-2"></i></button>
             </div>
         </div>
     </div>

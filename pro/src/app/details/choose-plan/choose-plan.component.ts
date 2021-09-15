@@ -22,11 +22,16 @@ export class ChoosePlanComponent implements OnInit {
   
 
   plans !: IPlan[]
-  selectedPlan : any
+  selectedPlan! : IPlan
   errMsg = '';
-  coverages=[] as any
+  showAddons = false
+  dummy !: IPlan;
+  selectedAddons = [] as any
+  coverages=[] as any;
+  addons = [] as any;
   isActive: boolean = false
   showCoverageDetails = false
+  addonPrice:number = 0
   ngOnInit(): void {
     console.log(this.selectedPlan)
   //console.log("in chooseplan");
@@ -40,22 +45,66 @@ export class ChoosePlanComponent implements OnInit {
 
   
   clicked(plan:any,id:number){
+    this.selectedAddons = []
+    $('#child'+(id+1)).children().toggleClass('active').parent().siblings().children().removeClass('active')
     
-   this.selectedPlan = plan;
-   this.coverages = this.selectedPlan.coverages;
-   $('#child'+(id+1)).children().toggleClass('active').parent().siblings().children().removeClass('active')
-
-   
-    
-
-   console.log(plan)
+    if($('#child'+(id+1)).children().hasClass("active")){
+      this.selectedPlan = plan;
+      this.coverages = this.selectedPlan.coverages;
+      this.addons = this.selectedPlan.addons;
+      this.showAddons = true
+      this.addonPrice = 0;
+      
+   }
+   else{
+     console.log(this.dummy)
+     this.selectedPlan = this.dummy;
+     this.coverages = []
+     this.addons = []
+     this.showAddons = true
+     this.addonPrice = 0;
+   }
+ 
   }
+
+  
+  addSelectedAddon(addOn:any,k:number){
+    this.selectedAddons.push(addOn)
+    for(var i=0; i<this.addons.length;i++){
+      if(addOn.coverage_id == this.addons[i].coverage_id){
+        this.addons.splice(i,1)
+      }
+    }
+    // $('#addonChild'+(k+1)).addClass('selected')
+    // $('#addonChild'+(k+1)).prop('disabled', true)
+    console.log(addOn);
+    
+    this.addonPrice += addOn.amount;
+    console.log(this.addonPrice);
+    
+  }
+
+  
+
   proceed(){
-    //console.log("personal_details");
+    console.log("personal_details");
     
     //this.captureSelectedPlan.emit(this.selectedPlan)
-    this.onProceedFromChoosePlan.emit({updateModule:"personal_details",selPlan:this.selectedPlan})
+    this.onProceedFromChoosePlan.emit({updateModule:"personal_details",selPlan:this.selectedPlan,addonTotal:this.addonPrice})
   }
   
+  removeSelectedAddon(addOn:any){
+    var removedAddon;
+    this.addonPrice -= addOn.amount
+    for(var i=0; i<this.selectedAddons.length;i++){
+      if(addOn.coverage_id == this.selectedAddons[i].coverage_id){
+        removedAddon = this.selectedAddons.splice(i,1)
+        //console.log(removedAddon)
+        this.addons.push(removedAddon[i])
+        //console.log(this.addons);
+        
+      }
+    }
+  }
 
 }

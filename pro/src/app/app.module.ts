@@ -16,6 +16,8 @@ import { CsAppComponent } from './cs.app.component';
 import { CreateQuoteComponent } from './create-quote/create-quote.component'
 import { PlanDetailsService } from './shared/plan-details.service';
 import {HttpClientModule } from '@angular/common/http'
+import { QuotesService } from './shared/quotes.service';
+import { GetQuoteComponent } from './get-quote/get-quote.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import {HttpClientModule } from '@angular/common/http'
     ReviewQuoteComponent,
     ConfirmComponent,
     CreateQuoteComponent,
+    GetQuoteComponent,
     
   ],
   imports: [
@@ -37,7 +40,10 @@ import {HttpClientModule } from '@angular/common/http'
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [PlanDetailsService],
+  providers: [
+    PlanDetailsService,
+    QuotesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

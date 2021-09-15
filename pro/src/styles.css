@@ -3,8 +3,13 @@
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 
 body{
-    font-style: italic;
     font-size: 24px;;
+}
+
+*{
+    
+    font-style: italic;
+    /* color: rgb(0, 84, 130); */
 }
 
 hr{
